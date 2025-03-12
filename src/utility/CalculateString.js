@@ -3,6 +3,9 @@
 const CalculateString = (numbers) =>{
     if (!numbers.trim()) return 0; // Handle empty input
 
+    if(numbers.startsWith('"')){
+        numbers=  numbers.replace(/"/g, '');
+    }
     let delimiter = /,|\n/;  // Default delimiters (comma and newline)
     let match = numbers.match(/^\/\/(\[.*?\]|\S)\n(.*)/);
   
