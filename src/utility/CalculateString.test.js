@@ -27,4 +27,8 @@ describe("String Calculator", () => {
   test("should support custom delimiters", () => {
     expect(CalculateString("//;\n1;2;3")).toBe(6);
   });
+  test("should  throw error if negative numbers are included in combinations", () => {
+    expect(() => CalculateString("1,-2\n3")).toThrow("Negative numbers not allowed: -2");
+  });
+  
 });
