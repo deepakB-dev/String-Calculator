@@ -12,4 +12,7 @@ describe("String Calculator", () => {
   test("should throw error if negative numbers are included", () => {
     expect(() => CalculateString("1,-2,3,-8")).toThrow("Negative numbers not allowed: -2, -8");
   });
+  test("should return sum of two numbers", () => {
+    expect(CalculateString("1,3")).toBe(4);
+  });
 });
