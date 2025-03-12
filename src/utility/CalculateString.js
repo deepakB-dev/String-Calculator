@@ -9,8 +9,8 @@ const CalculateString = (numbers) =>{
     if (match) {
       let customDelimiter = match[1];
       numbers = match[2];
-
-      if (customDelimiter.startsWith("[")) {
+      
+      if (customDelimiter.startsWith("[") && customDelimiter.endsWith("]")) {
         // Handle multiple custom delimiters like "//[*][%]\n1*2%3"
         let delimiters = customDelimiter.slice(1, -1).split("][");
         delimiter = new RegExp(`(${delimiters.map(d => d.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})|,`);
