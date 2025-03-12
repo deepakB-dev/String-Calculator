@@ -9,7 +9,15 @@ const CalculateString = (numbers) =>{
     if (match) {
       let customDelimiter = match[1];
       numbers = match[2];
+
+      if (customDelimiter.startsWith("[")) {
+        // Handle multiple custom delimiters like "//[*][%]\n1*2%3"
+        let delimiters = customDelimiter.slice(1, -1).split("][");
+        delimiter = new RegExp(`(${delimiters.map(d => d.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})|,`);
+      } else {
+        // Handle single custom delimiter like "//;\n1;2"
         delimiter = new RegExp(`${customDelimiter.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}|,|\n`);
+      }
     }
     
     const numArray = numbers
