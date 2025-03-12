@@ -15,4 +15,7 @@ describe("String Calculator", () => {
   test("should return sum of two numbers", () => {
     expect(CalculateString("1,3")).toBe(4);
   });
+  test("should handle new lines between numbers", () => {
+    expect(CalculateString("1\n2,3")).toBe(6);
+  });
 });

@@ -3,13 +3,13 @@
 const CalculateString = (numbers) =>{
     if (!numbers.trim()) return 0; // Handle empty input
 
-    let delimiter = /,/; // Default delimiters (comma and newline)
+    let delimiter = /,|\n/;  // Default delimiters (comma and newline)
     let match = numbers.match(/^\/\/(\[.*?\]|\S)\n(.*)/);
   
     if (match) {
       let customDelimiter = match[1];
       numbers = match[2];
-        delimiter = new RegExp(`${customDelimiter.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}|,|`);
+        delimiter = new RegExp(`${customDelimiter.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}|,|\n`);
     }
     
     const numArray = numbers
