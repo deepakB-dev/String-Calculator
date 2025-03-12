@@ -30,5 +30,10 @@ describe("String Calculator", () => {
   test("should  throw error if negative numbers are included in combinations", () => {
     expect(() => CalculateString("1,-2\n3")).toThrow("Negative numbers not allowed: -2");
   });
-  
+  test("should  throw error if negative numbers are included in combinations 2", () => {
+    expect(() => CalculateString("//;\n1;2;3;-4")).toThrow("Negative numbers not allowed: -4");
+  });
+  test("should  throw error if negative numbers are included in combinations 3", () => {
+    expect(() => CalculateString("//;\n1;2;3;-4,-5")).toThrow("Negative numbers not allowed: -4, -5");
+  });
 });
