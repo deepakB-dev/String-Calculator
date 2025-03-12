@@ -13,7 +13,7 @@ const CalculateString = (numbers) =>{
       if (customDelimiter.startsWith("[") && customDelimiter.endsWith("]")) {
         // Handle multiple custom delimiters like "//[*][%]\n1*2%3"
         let delimiters = customDelimiter.slice(1, -1).split("][");
-        delimiter = new RegExp(`(${delimiters.map(d => d.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})|,`);
+        delimiter = new RegExp(`(${delimiters.map(d => d.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})|,|\n`);
       } else {
         // Handle single custom delimiter like "//;\n1;2"
         delimiter = new RegExp(`${customDelimiter.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}|,|\n`);
